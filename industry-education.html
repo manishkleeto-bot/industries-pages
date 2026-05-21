@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Education Document Management — Kleeto</title>
+<meta name="description" content="Kleeto digitizes student records, faculty files, and NAAC documents for schools, colleges, and universities — retrievable in seconds.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="industry.css">
+<style>
+  /* ── EDUCATION hero accent colour tweak ── */
+  .hero { background: linear-gradient(160deg, #fff 0%, #f3faf1 100%); }
+  /* Edu-themed visual */
+  .edu-visual { position: relative; width: 100%; height: 400px; }
+  .edu-card-main {
+    position: absolute; left: 30px; top: 40px;
+    width: 240px; height: 290px;
+    border-radius: 22px; background: #fff;
+    border: 1px solid rgba(0,0,0,.08);
+    box-shadow: 0 24px 56px rgba(0,0,0,.14);
+    overflow: hidden;
+    animation: cardFloat 6s ease-in-out infinite;
+  }
+  .edu-card-top { background: var(--green); height: 52px; display: flex; align-items: center; padding: 0 16px; color: #fff; font-weight: 900; font-size: 13px; letter-spacing: .05em; }
+  .edu-row { display: flex; align-items: center; gap: 8px; margin: 10px 16px; }
+  .edu-dot-g { width: 8px; height: 8px; border-radius: 50%; background: var(--green); flex: 0 0 auto; }
+  .edu-row-line { flex: 1; height: 9px; border-radius: 999px; background: #e9ece8; }
+  .edu-row-line.s { width: 55%; flex: none; }
+
+  .edu-card-back {
+    position: absolute; left: 54px; top: 64px;
+    width: 240px; height: 290px;
+    border-radius: 22px; background: #fff;
+    border: 1px solid rgba(0,0,0,.06);
+    box-shadow: 0 14px 34px rgba(0,0,0,.09);
+    opacity: .75; z-index: -1;
+    transform: rotate(5deg);
+  }
+  .edu-card-back2 {
+    position: absolute; left: 76px; top: 82px;
+    width: 240px; height: 290px;
+    border-radius: 22px; background: var(--green-soft);
+    border: 1px solid var(--green-mid);
+    opacity: .55; z-index: -2;
+    transform: rotate(10deg);
+  }
+
+  .edu-badge-naac {
+    position: absolute; right: 30px; top: 56px;
+    background: #111; color: #fff;
+    border-radius: 14px; padding: 12px 16px;
+    font-weight: 900; font-size: 13px;
+    box-shadow: 0 16px 36px rgba(0,0,0,.22);
+    animation: badgeFloat 4.5s ease-in-out infinite;
+  }
+  .edu-badge-naac small { display: block; color: var(--yellow); font-size: 11px; font-weight: 700; margin-top: 3px; }
+
+  .edu-badge-qr {
+    position: absolute; right: 44px; bottom: 80px;
+    background: var(--yellow); color: #111;
+    border-radius: 14px; padding: 12px 16px;
+    font-weight: 900; font-size: 13px;
+    box-shadow: 0 14px 30px rgba(0,0,0,.16);
+    animation: badgeFloat 5s ease-in-out infinite reverse;
+  }
+  .edu-badge-qr small { display: block; font-size: 11px; font-weight: 700; opacity: .65; margin-top: 3px; }
+
+  .dot-g1 { width: 16px; height: 16px; background: var(--green); top: 28px; right: 140px; animation-delay: .4s; }
+  .dot-g2 { width: 24px; height: 24px; background: var(--yellow); bottom: 60px; left: 28px; animation-delay: 1.2s; }
+  .dot-g3 { width: 10px; height: 10px; background: #111; top: 190px; right: 28px; animation-delay: 1.8s; }
+
+  @keyframes cardFloat {
+    0%,100% { transform: translateY(0) rotate(0deg); }
+    50%      { transform: translateY(-12px) rotate(.8deg); }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ HEADER ═══════════ -->
+<header class="site-header">
+  <div class="container">
+    <nav class="nav-wrap">
+      <a href="https://www.kleeto.in" class="brand">
+        <img src="https://www.kleeto.in/images/logo.png" alt="Kleeto" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span class="brand-text" style="display:none">Kleeto</span>
+      </a>
+      <div class="main-nav" id="mainNav">
+
+  <a href="https://www.kleeto.in">Home</a>
+
+  <a href="industry-banking-nbfc.html">Banking</a>
+
+  <a href="industry-education.html">Education</a>
+
+  <a href="industry-insurance.html">Insurance</a>
+
+  <a href="industry-legal-procurement.html">
+    Legal
+  </a>
+
+  <a href="https://www.kleeto.in/about-us">
+    About Us
+  </a>
+
+  <a href="#" class="muted">Login</a>
+
+  <a href="https://www.kleeto.in/Demo-Page.php"
+     class="btn btn-primary"
+     style="padding:10px 20px;font-size:13px">
+     Book Demo
+  </a>
+
+</div>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="breadcrumb">
+          <a href="https://www.kleeto.in">Home</a>
+          <span>›</span>
+          <span>Industries</span>
+          <span>›</span>
+          <span>Education</span>
+        </div>
+        <p class="eyebrow">Education &amp; Academia</p>
+        <h1>Document Management for Schools, Colleges &amp; Universities</h1>
+        <p class="hero-sub">Decades of student records, faculty files, and NAAC documents — digitized, indexed, and retrievable in seconds.</p>
+        <ul class="hero-checks">
+          <li>Student &amp; alumni records digitized and searchable instantly</li>
+          <li>NAAC / NBA / NIRF accreditation evidence — organized automatically</li>
+          <li>Aadhaar eSign on certificates &amp; QR-coded transcript issuance</li>
+          <li>Retention policies aligned to UGC &amp; AICTE requirements</li>
+        </ul>
+        <div class="hero-actions">
+          <a href="https://www.kleeto.in/Demo-Page.php" class="btn btn-primary">Book My Demo</a>
+          <a href="tel:+91XXXXXXXXXX" class="btn btn-outline">Call Us</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="edu-visual">
+          <div class="edu-card-back2"></div>
+          <div class="edu-card-back"></div>
+          <div class="edu-card-main">
+            <div class="edu-card-top">📚 STUDENT RECORDS</div>
+            <div class="edu-row"><div class="edu-dot-g"></div><div class="edu-row-line"></div></div>
+            <div class="edu-row"><div class="edu-dot-g"></div><div class="edu-row-line s"></div></div>
+            <div class="edu-row"><div class="edu-dot-g"></div><div class="edu-row-line"></div></div>
+            <div class="edu-row"><div class="edu-dot-g"></div><div class="edu-row-line s"></div></div>
+            <div class="edu-row"><div class="edu-dot-g"></div><div class="edu-row-line"></div></div>
+          </div>
+          <div class="edu-badge-naac">NAAC Ready ✓<small>Criteria-wise evidence</small></div>
+          <div class="edu-badge-qr">QR Transcripts<small>Instant verification</small></div>
+          <div class="vis-dot dot-g1"></div>
+          <div class="vis-dot dot-g2"></div>
+          <div class="vis-dot dot-g3"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PROOF BAR ═══════════ -->
+<section class="section-pad" style="padding:16px 0 40px">
+  <div class="container">
+    <div class="proof-bar">
+      <div class="proof-grid">
+        <div class="proof-cell"><strong>1 Day</strong><span>Transcript turnaround (was 5–15 days)</span></div>
+        <div class="proof-cell"><strong>100%</strong><span>Audit-trail on every document action</span></div>
+        <div class="proof-cell"><strong>AES-256</strong><span>Encryption on all stored records</span></div>
+        <div class="proof-cell"><strong>ISO 27001</strong><span>Certified &amp; DPDP Act 2023 aligned</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CHALLENGES ═══════════ -->
+<section class="section-pad light-bg">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Industry Pain Points</p>
+      <h2>Challenges Kleeto Solves for Education</h2>
+      <p>From crumbling paper archives to last-minute accreditation scrambles — these are the problems we eliminate.</p>
+    </div>
+    <div class="challenges-grid">
+      <div class="challenge-card">
+        <div class="challenge-num">01</div>
+        <h3>Student Record Sprawl</h3>
+        <p>Admission forms, mark sheets, and transcripts piling up across decades in physical cabinets.</p>
+      </div>
+      <div class="challenge-card">
+        <div class="challenge-num">02</div>
+        <h3>Transcript Hunt</h3>
+        <p>Alumni requests trigger multi-day paper searches across multiple departments and storage rooms.</p>
+      </div>
+      <div class="challenge-card">
+        <div class="challenge-num">03</div>
+        <h3>Accreditation Pressure</h3>
+        <p>NAAC, NBA, and NIRF demand evidence in defined formats — assembling it manually takes months.</p>
+      </div>
+      <div class="challenge-card">
+        <div class="challenge-num">04</div>
+        <h3>Faculty File Fragmentation</h3>
+        <p>Faculty records scattered across HR, accounts, and academic offices with no single source of truth.</p>
+      </div>
+      <div class="challenge-card">
+        <div class="challenge-num">05</div>
+        <h3>Examination Archives</h3>
+        <p>Answer scripts retained for years in damp, inaccessible storage — prone to damage and loss.</p>
+      </div>
+      <div class="challenge-card" style="background:linear-gradient(135deg,var(--green-soft),#e0f0da);border-color:var(--green-mid)">
+        <div class="challenge-num" style="background:#fff">✓</div>
+        <h3 style="color:var(--green-dark)">Kleeto solves all of this</h3>
+        <p>One searchable, secure, compliant repository — built for the Indian education sector.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ HOW KLEETO HELPS ═══════════ -->
+<section class="section-pad">
+  <div class="container">
+    <div class="two-col">
+      <div>
+        <p class="eyebrow">How Kleeto Helps</p>
+        <h2>One Repository for Your Entire Institution</h2>
+        <p>Kleeto centralizes student, faculty, accreditation, and governance documents — with Aadhaar eSign, QR-coded transcript issuance, and retention policies aligned to UGC and AICTE rules.</p>
+        <div style="margin-top:28px; display:grid; gap:10px;">
+          <div class="help-item"><div class="help-icon">🎓</div>Student &amp; alumni records indexed by batch, program, or roll number</div>
+          <div class="help-item"><div class="help-icon">📋</div>NAAC / NBA evidence organized in exact criteria structure</div>
+          <div class="help-item"><div class="help-icon">✍️</div>Aadhaar eSign via NSDL-licensed Certifying Authority</div>
+          <div class="help-item"><div class="help-icon">🔍</div>QR-code transcript verification for third parties</div>
+          <div class="help-item"><div class="help-icon">⏰</div>Expiry alerts 30 / 60 / 90 days out for affiliations &amp; contracts</div>
+        </div>
+      </div>
+      <div class="help-visual">
+        <div style="font-weight:900;color:var(--green-dark);font-size:15px;margin-bottom:6px">📂 Document Repository</div>
+        <div class="help-item"><div class="help-icon">📄</div>Admission forms &amp; mark sheets</div>
+        <div class="help-item"><div class="help-icon">🏛️</div>NAAC / NIRF evidence files</div>
+        <div class="help-item"><div class="help-icon">👩‍🏫</div>Faculty appointments &amp; qualifications</div>
+        <div class="help-item"><div class="help-icon">📝</div>Examination scripts &amp; evaluation records</div>
+        <div class="help-item"><div class="help-icon">🏢</div>Governing body minutes &amp; AICTE / UGC filings</div>
+        <div class="help-item"><div class="help-icon">🤝</div>Society / trust &amp; affiliation correspondence</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ USE CASES ═══════════ -->
+<section class="section-pad light-bg">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow">Use Cases</p>
+      <h2>How Institutions Use Kleeto</h2>
+    </div>
+    <div class="usecase-grid">
+      <div class="usecase-card">
+        <div class="usecase-icon">📥</div>
+        <h3>Student Admission Digitization</h3>
+        <p>Every admission form and supporting document indexed by batch and program — instantly retrievable.</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-icon">🎓</div>
+        <h3>Alumni Transcript Portal</h3>
+        <p>Secure online requests issued with Aadhaar eSign and QR verification — turnaround under 1 day.</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-icon">🏅</div>
+        <h3>NAAC &amp; NBA Cycle Prep</h3>
+        <p>Evidence organized in the exact criteria structure regulators require — weeks, not months of prep.</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-icon">👩‍🏫</div>
+        <h3>Faculty File Management</h3>
+        <p>Appointments, promotions, qualifications, and statutory compliance in one place — across departments.</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-icon">📦</div>
+        <h3>Examination Archive</h3>
+        <p>Answer scripts and evaluation records retained per examination authority rules — never lost in damp storage again.</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-icon">⚖️</div>
+        <h3>Governance &amp; Statutory Records</h3>
+        <p>Board minutes, AICTE / UGC filings, society and trust documents — version-controlled and audit-ready.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ DOCUMENT TYPES ═══════════ -->
+<section class="section-pad doc-types-section">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Document Types</p>
+      <h2>Every Document Your Institution Creates</h2>
+      <p>Kleeto handles the complete document universe of schools, colleges, and universities.</p>
+    </div>
+    <div class="doc-pills">
+      <span class="doc-pill">Admission Forms</span>
+      <span class="doc-pill">Mark Sheets</span>
+      <span class="doc-pill">Transcripts</span>
+      <span class="doc-pill">Scholarship Records</span>
+      <span class="doc-pill">Attendance Sheets</span>
+      <span class="doc-pill">Examination Scripts</span>
+      <span class="doc-pill">Faculty Appointments</span>
+      <span class="doc-pill">Faculty Qualifications</span>
+      <span class="doc-pill">Statutory Employee Documents</span>
+      <span class="doc-pill">NAAC Evidence Files</span>
+      <span class="doc-pill">NBA Evidence Files</span>
+      <span class="doc-pill">NIRF Evidence Files</span>
+      <span class="doc-pill">Governing Body Minutes</span>
+      <span class="doc-pill">AICTE / UGC Submissions</span>
+      <span class="doc-pill">Society / Trust Filings</span>
+      <span class="doc-pill">Affiliating University Correspondence</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ KEY FEATURES ═══════════ -->
+<section class="section-pad">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow">Key Features</p>
+      <h2>Built for Educational Institutions</h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🔎</div>
+        <h3>Smart Indexing</h3>
+        <p>Search by student name, roll number, batch, program, or any custom field — results in milliseconds.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">✍️</div>
+        <h3>Aadhaar eSign</h3>
+        <p>Legally valid digital signatures via NSDL-licensed Certifying Authority — on certificates, contracts, and more.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📱</div>
+        <h3>QR-Code Verification</h3>
+        <p>Transcript authenticity verified by employers or universities in seconds — no calls to your office.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔐</div>
+        <h3>Role-Based Access</h3>
+        <p>Principal, registrar, exam controller, HR — each person sees exactly what they need, nothing more.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔔</div>
+        <h3>Expiry Alerts</h3>
+        <p>License, contract, and affiliation renewals tracked and flagged 30 / 60 / 90 days before expiry.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📦</div>
+        <h3>Bulk Digitization</h3>
+        <p>Legacy paper archives picked up, archival-quality scanned, and smart-indexed by our team at your campus.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ WORKFLOW ═══════════ -->
+<section class="section-pad workflow-section">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow light">Document Workflow</p>
+      <h2>From Paper to Archived in 6 Steps</h2>
+      <p style="color:rgba(255,255,255,.6)">Every document moves through this six-stage flow — from physical pickup to long-term retention.</p>
+    </div>
+    <div class="workflow-steps">
+      <div class="workflow-step">
+        <div class="workflow-step-num">1</div>
+        <h3>Capture</h3>
+        <p>Physical pickup, scan, or digital upload</p>
+      </div>
+      <div class="workflow-step">
+        <div class="workflow-step-num">2</div>
+        <h3>Index</h3>
+        <p>Smart metadata tagging by student, batch, type</p>
+      </div>
+      <div class="workflow-step">
+        <div class="workflow-step-num">3</div>
+        <h3>Store</h3>
+        <p>AES-256 encrypted secure cloud storage</p>
+      </div>
+      <div class="workflow-step">
+        <div class="workflow-step-num">4</div>
+        <h3>Retrieve</h3>
+        <p>Instant keyword &amp; metadata search</p>
+      </div>
+      <div class="workflow-step">
+        <div class="workflow-step-num">5</div>
+        <h3>Share / eSign</h3>
+        <p>QR transcripts &amp; Aadhaar eSign issuance</p>
+      </div>
+      <div class="workflow-step">
+        <div class="workflow-step-num">6</div>
+        <h3>Archive</h3>
+        <p>Auto-retention per UGC / AICTE rules</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ BENEFITS ═══════════ -->
+<section class="section-pad light-bg">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow">Measurable Benefits</p>
+      <h2>What Institutions See After Kleeto</h2>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-num">📅</div>
+        <div>
+          <h3>Transcript Turnaround</h3>
+          <p>From 5–15 days down to under 1 day. Alumni get their verified documents instantly — without calling the registrar.</p>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-num">🏅</div>
+        <div>
+          <h3>Accreditation Prep</h3>
+          <p>From months of scrambling to a few weeks. Evidence is already organized in the exact structure NAAC and NBA require.</p>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-num">🏢</div>
+        <div>
+          <h3>Storage Cost Savings</h3>
+          <p>Physical archive rooms recovered for academic use — classrooms, labs, or offices instead of filing cabinets.</p>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-num">✅</div>
+        <div>
+          <h3>Audit Confidence</h3>
+          <p>UGC, AICTE, and NAAC inspections become one-click exports — no more last-minute paper hunts.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ COMPLIANCE ═══════════ -->
+<section class="section-pad">
+  <div class="container">
+    <div class="compliance-strip">
+      <h3>Compliance &amp; Security</h3>
+      <div class="compliance-badges">
+        <span class="comp-badge">ISO 27001 Certified</span>
+        <span class="comp-badge">GDPR Compliant</span>
+        <span class="comp-badge">DPDP Act 2023</span>
+        <span class="comp-badge">UGC Retention Aligned</span>
+        <span class="comp-badge">AICTE Guidelines</span>
+        <span class="comp-badge">AES-256 Encryption</span>
+        <span class="comp-badge">2FA &amp; IP Controls</span>
+        <span class="comp-badge">Full Audit Trails</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FAQ ═══════════ -->
+<section class="section-pad light-bg">
+  <div class="container">
+    <div class="faq-layout">
+      <div class="faq-intro">
+        <p class="eyebrow">FAQ</p>
+        <h2>Common Questions from Education Teams</h2>
+        <p>Everything you need to know before getting started with Kleeto for your institution.</p>
+        <a href="https://www.kleeto.in/Demo-Page.php" class="btn btn-primary" style="margin-top:8px">Talk to an Expert</a>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-btn">
+            How long must educational institutes retain student records?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-body"><p>Academic records are typically retained permanently for transcript and verification purposes. Examination scripts are kept for 3 to 7 years per the examination authority's rules. Kleeto enforces these policies automatically.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn">
+            Can Kleeto help with NAAC or NBA accreditation submissions?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-body"><p>Yes — Kleeto organizes evidence in the exact structure NAAC and NBA criteria require, making cycle submissions dramatically faster. Your team simply exports what inspectors need.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn">
+            How does the alumni transcript portal work?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-body"><p>Alumni submit a verified request online. The institute issues the document with Aadhaar eSign and a QR-code stamp so employers or universities can verify authenticity instantly — no phone calls needed.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn">
+            Can Kleeto digitize decade-old paper archives?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-body"><p>Yes — implementation includes physical pickup at your campus, archival-quality scanning, and smart indexing of legacy admission registers, faculty files, and examination records going back decades.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CTA ═══════════ -->
+<section class="cta-banner">
+  <div class="container">
+    <div class="cta-box">
+      <div>
+        <p class="eyebrow light">Get Started</p>
+        <h2>Ready to Transform Your Institution's Documents?</h2>
+        <p>Join universities, colleges, and schools that have already eliminated their paper backlogs with Kleeto.</p>
+        <div class="cta-actions">
+          <a href="https://www.kleeto.in/Demo-Page.php" class="btn-white">Book My Demo</a>
+          <a href="tel:+91XXXXXXXXXX" class="btn btn-ghost">Call Us Now</a>
+        </div>
+      </div>
+      <div style="display:grid;gap:14px;min-width:200px">
+        <div style="background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:18px 20px;color:#fff">
+          <div style="font-size:28px;font-weight:900;color:var(--yellow)">1 Day</div>
+          <div style="font-size:12px;font-weight:700;opacity:.7;margin-top:4px">Transcript turnaround</div>
+        </div>
+        <div style="background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:18px 20px;color:#fff">
+          <div style="font-size:28px;font-weight:900;color:var(--yellow)">Weeks</div>
+          <div style="font-size:12px;font-weight:700;opacity:.7;margin-top:4px">Not months for NAAC prep</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-brand">Kleeto</span>
+      <div class="footer-links">
+        <a href="https://www.kleeto.in">Home</a>
+        <a href="#">Services</a>
+        <a href="#">Industries</a>
+        <a href="#">About Us</a>
+        <a href="https://www.kleeto.in/Demo-Page.php">Demo</a>
+      </div>
+      <span>© 2025 Kleeto. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav toggle
+  document.getElementById('menuBtn').addEventListener('click', () => {
+    document.getElementById('mainNav').classList.toggle('open');
+  });
+  // FAQ accordion
+  document.querySelectorAll('.faq-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const wasOpen = item.classList.contains('active');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+      if (!wasOpen) item.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>

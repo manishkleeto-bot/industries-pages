@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Legal &amp; Procurement Document Management — Kleeto</title>
+<meta name="description" content="Kleeto unifies contracts, vendor files, litigation records, and regulatory filings for in-house legal and procurement teams — audit-trailed and one search away.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="industry.css">
+<style>
+  .hero { background: linear-gradient(160deg, #fff 0%, #fafbf6 100%); }
+
+  /* Legal visual */
+  .legal-visual { position: relative; width: 100%; height: 400px; }
+
+  .legal-contract {
+    position: absolute; left: 28px; top: 36px;
+    width: 228px; height: 285px;
+    border-radius: 22px; background: #fff;
+    border: 1px solid rgba(0,0,0,.08);
+    box-shadow: 0 24px 56px rgba(0,0,0,.15);
+    overflow: hidden;
+    animation: cardFloat 6s ease-in-out infinite;
+  }
+  .legal-contract-top { background: #111; height: 52px; display: flex; align-items: center; padding: 0 16px; color: var(--yellow); font-weight: 900; font-size: 12px; letter-spacing: .07em; }
+  .lc-row { display: flex; align-items: center; gap: 8px; margin: 10px 16px; }
+  .lc-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); flex: 0 0 auto; }
+  .lc-line { flex: 1; height: 9px; border-radius: 999px; background: #eaeaea; }
+  .lc-line.s { width: 50%; flex: none; }
+  .lc-stamp {
+    position: absolute; bottom: 18px; right: 18px;
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    border: 5px solid var(--green);
+    background: rgba(255,255,255,.9);
+    display: grid; place-items: center;
+    color: var(--green); font-weight: 900; font-size: 10px;
+    transform: rotate(-15deg);
+    box-shadow: 0 8px 20px rgba(31,122,16,.2);
+  }
+
+  .legal-b2 {
+    position: absolute; left: 50px; top: 56px;
+    width: 228px; height: 285px;
+    border-radius: 22px;
+    background: linear-gradient(135deg, var(--yellow-soft), #f5edcc);
+    border: 1px solid #e0d090;
+    opacity: .7; z-index: -1;
+    transform: rotate(4deg);
+  }
+
+  .legal-badge-priv {
+    position: absolute; right: 22px; top: 44px;
+    background: #111; color: #fff;
+    border-radius: 14px; padding: 12px 16px;
+    font-weight: 900; font-size: 13px;
+    box-shadow: 0 16px 36px rgba(0,0,0,.22);
+    animation: badgeFloat 4.5s ease-in-out infinite;
+  }
+  .legal-badge-priv small { display: block; color: var(--yellow); font-size: 11px; font-weight: 700; margin-top: 3px; }
+
+  .legal-badge-vendor {
+    position: absolute; right: 38px; bottom: 76px;
+    background: var(--green); color: #fff;
+    border-radius: 14px; padding: 12px 16px;
+    font-weight: 900; font-size: 13px;
+    box-shadow: 0 14px 30px rgba(31,122,16,.28);
+    animation: badgeFloat 5s ease-in-out infinite reverse;
+  }
+  .legal-badge-vendor small { display: block; color: rgba(255,255,255,.75); font-size: 11px; font-weight: 700; margin-top: 3px; }
+
+  .dot-l1 { width: 18px; height: 18px; background: var(--yellow); top: 22px; right: 148px; animation-delay: .4s; }
+  .dot-l2 { width: 26px; height: 26px; background: var(--green); bottom: 52px; left: 22px; animation-delay: 1.2s; }
+  .dot-l3 { width: 12px; height: 12px; background: #111; top: 200px; right: 26px; animation-delay: 1.9s; }
+
+  @keyframes cardFloat {
+    0%,100% { transform: translateY(0); }
+    50%      { transform: translateY(-12px) rotate(.5deg); }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ HEADER ═══════════ -->
+<header class="site-header">
+  <div class="container">
+    <nav class="nav-wrap">
+      <a href="https://www.kleeto.in" class="brand">
+        <img src="https://www.kleeto.in/images/logo.png" alt="Kleeto" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span class="brand-text" style="display:none">Kleeto</span>
+      </a>
+      <div class="main-nav" id="mainNav">
+
+  <a href="https://www.kleeto.in">Home</a>
+
+  <a href="industry-banking-nbfc.html">Banking</a>
+
+  <a href="industry-education.html">Education</a>
+
+  <a href="industry-insurance.html">Insurance</a>
+
+  <a href="industry-legal-procurement.html">
+    Legal
+  </a>
+
+  <a href="https://www.kleeto.in/about-us">
+    About Us
+  </a>
+
+  <a href="#" class="muted">Login</a>
+
+  <a href="https://www.kleeto.in/Demo-Page.php"
+     class="btn btn-primary"
+     style="padding:10px 20px;font-size:13px">
+     Book Demo
+  </a>
+
+</div>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="breadcrumb">
+          <a href="https://www.kleeto.in">Home</a>
+          <span>›</span>
+          <span>Industries</span>
+          <span>›</span>
+          <span>Legal &amp; Procurement</span>
+        </div>
+        <p class="eyebrow">Legal &amp; Procurement</p>
+        <h1>Document Management for In-House Legal &amp; Procurement Teams</h1>
+        <p class="hero-sub">Contracts, vendor files, litigation records, regulatory filings — backed up, audit-trailed, and one search away.</p>
+        <ul class="hero-checks">
+          <li>Every contract indexed by counterparty, type, and expiry date</li>
+          <li>Vendor onboarding from days to under 24 hours per vendor</li>
+          <li>Privilege-protected litigation files with discovery-ready exports</li>
+          <li>Aadhaar eSign + e-stamping without leaving the repository</li>
+        </ul>
+        <div class="hero-actions">
+          <a href="https://www.kleeto.in/Demo-Page.php" class="btn btn-primary">Book My Demo</a>
+          <a href="tel:+91XXXXXXXXXX" class="btn btn-outline">Call Us</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="legal-visual">
+          <div class="legal-b2"></div>
+          <div class="legal-contract">
+            <div class="legal-contract-top">📜 CONTRACT</div>
+            <div class="lc-row"><div class="lc-dot"></div><div class="lc-line"></div></div>
+            <div class="lc-row"><div class="lc-dot"></div><div class="lc-line s"></div></div>
+            <div class="lc-row"><div class="lc-dot"></div><div class="lc-line"></div></div>
+            <div class="lc-row"><div class="lc-dot"></div><div class="lc-line s"></div></div>
+            <div class="lc-row"><div class="lc-dot"></div><div class="lc-line"></div></div>
+            <div class="lc-stamp">eSIGN<br>✓</div>
+          </div>
+          <div class="legal-badge-priv">🔒 Privileged<small>Litigation work product</small></div>
+          <div class="legal-badge-vendor">Vendor Ready ✓<small>24hr onboarding</small></div>
+          <div class="vis-dot dot-l1"></div>
+          <div class="vis-dot dot-l2"></div>
+          <div class="vis-dot dot-l3"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PROOF BAR ═══════════ -->
+<section style="padding:16px 0 40px">
+  <div class="container">
+    <div class="proof-bar">
+      <div class="proof-grid">
+        <div class="proof-cell"><strong>24 hrs</strong><span>Vendor onboarding (was days)</span></div>
+        <div class="proof-cell"><strong>Minutes</strong><span>Audit &amp; discovery exports</span></div>
+        <div class="proof-cell"><strong>30/60/90</strong><span>Days early expiry alerts</span></div>
+        <div class="proof-cell"><strong>ISO 27001</strong><span>Certified &amp; DPDP Act 2023</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CHALLENGES ═══════════ -->
+<section class="section-pad light-bg">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Industry Pain Points</p>
+      <h2>Challenges Kleeto Solves for Legal &amp; Procurement</h2>
+      <p>From contracts that never reach Legal to litigation files assembled in a panic — these are the problems we eliminate.</p>
+    </div>
+    <div class="challenges-grid">
+      <div class="challenge-card">
+        <div class="challenge-num">01</div>
+        <h3>Contract Sprawl</h3>
+        <p>Half the contracts signed by the business never reach Legal — creating invisible exposure and compliance gaps.</p>
+      </div>
+      <div class="challenge-card">
+        <div class="challenge-num">02</div>
+        <h3>Litigation Reconstruction</h3>
+        <p>72-hour evidence assembly from scattered sources weakens cases and costs the business in avoidable settlements.</p>
+      </div>
+      <div class="challenge-card">
+        <div class="challenge-num">03</div>
+        <h3>Regulatory Deadlines</h3>
+        <p>MCA, SEBI, RBI filings missed = compliance penalties. Manual tracking is not a reliable system.</p>
+      </div>
+      <div class="challenge-card">
+        <div class="challenge-num">04</div>
+        <h3>Vendor File Gaps</h3>
+        <p>PAN, GSTIN, MSME, insurance certificates — completeness across hundreds of vendors is a constant struggle.</p>
+      </div>
+      <div class="challenge-card">
+        <div class="challenge-num">05</div>
+        <h3>Compliance Expiries</h3>
+        <p>Vendor certifications lapse unnoticed — creating risk exposure that only surfaces during audits or disputes.</p>
+      </div>
+      <div class="challenge-card" style="background:linear-gradient(135deg,var(--green-soft),#e0f0da);border-color:var(--green-mid)">
+        <div class="challenge-num" style="background:#fff">✓</div>
+        <h3 style="color:var(--green-dark)">Kleeto solves all of this</h3>
+        <p>One privilege-protected repository — for Legal, Procurement, and Compliance to work from the same source.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ HOW KLEETO HELPS ═══════════ -->
+<section class="section-pad">
+  <div class="container">
+    <div class="two-col">
+      <div>
+        <p class="eyebrow">How Kleeto Helps</p>
+        <h2>One Privilege-Protected Repository for Legal &amp; Procurement</h2>
+        <p>Kleeto unifies contracts, vendor files, litigation records, and regulatory filings — with Aadhaar eSign, e-stamping, vendor completeness checks, and discovery-ready exports for legal and audit needs.</p>
+        <div style="margin-top:28px; display:grid; gap:10px;">
+          <div class="help-item"><div class="help-icon">📜</div>Every contract indexed by counterparty, type, and expiry</div>
+          <div class="help-item"><div class="help-icon">🔒</div>Privileged litigation files — access-controlled and access-logged</div>
+          <div class="help-item"><div class="help-icon">🏭</div>Vendor PAN, GSTIN, MSME verification in under 24 hours</div>
+          <div class="help-item"><div class="help-icon">✍️</div>Aadhaar eSign + e-stamping without leaving the repository</div>
+          <div class="help-item"><div class="help-icon">📅</div>Regulator-wise filing deadline alerts — MCA, SEBI, RBI, IRDAI</div>
+        </div>
+      </div>
+      <div class="help-visual">
+        <div style="font-weight:900;color:var(--green-dark);font-size:15px;margin-bottom:6px">📂 Unified Repository</div>
+        <div class="help-item"><div class="help-icon">🤝</div>Vendor agreements, MSAs, SOWs, NDAs</div>
+        <div class="help-item"><div class="help-icon">⚖️</div>Litigation pleadings &amp; evidence files</div>
+        <div class="help-item"><div class="help-icon">🏛️</div>MCA, SEBI, RBI, IRDAI filings</div>
+        <div class="help-item"><div class="help-icon">📋</div>Board resolutions &amp; statutory documents</div>
+        <div class="help-item"><div class="help-icon">🏭</div>Vendor compliance certificates (GST, MSME, ISO)</div>
+        <div class="help-item"><div class="help-icon">📝</div>IP licenses &amp; lease deeds</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ USE CASES ═══════════ -->
+<section class="section-pad light-bg">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow">Use Cases</p>
+      <h2>How Legal &amp; Procurement Teams Use Kleeto</h2>
+    </div>
+    <div class="usecase-grid">
+      <div class="usecase-card">
+        <div class="usecase-icon">📜</div>
+        <h3>Contract Repository</h3>
+        <p>Every contract across the business indexed by counterparty, type, and expiry — full-text searchable in seconds.</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-icon">🏭</div>
+        <h3>Vendor Onboarding &amp; Master File</h3>
+        <p>PAN, GSTIN, MSME, and bank verification completed in under 24 hours per vendor — with completeness checks.</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-icon">⚖️</div>
+        <h3>Litigation Matter Management</h3>
+        <p>Case-wise files with privilege tagging and discovery-ready exports — assembled in minutes, not days.</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-icon">🏛️</div>
+        <h3>Regulatory Filing Tracker</h3>
+        <p>MCA, SEBI, RBI, and IRDAI deadlines tracked with submission proof archived automatically.</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-icon">✍️</div>
+        <h3>Contract Execution</h3>
+        <p>Draft, eSign, and e-stamp — complete the full contract cycle without leaving the repository.</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-icon">🛡️</div>
+        <h3>Audit Defensibility</h3>
+        <p>Vendor selection trails and privilege logs exported in one click — for any audit or dispute.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ DOCUMENT TYPES ═══════════ -->
+<section class="section-pad doc-types-section">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Document Types</p>
+      <h2>Every Document Your Legal &amp; Procurement Team Touches</h2>
+    </div>
+    <div class="doc-pills">
+      <span class="doc-pill">Vendor Agreements</span>
+      <span class="doc-pill">MSAs</span>
+      <span class="doc-pill">SOWs</span>
+      <span class="doc-pill">Purchase Orders</span>
+      <span class="doc-pill">NDAs</span>
+      <span class="doc-pill">Customer Contracts</span>
+      <span class="doc-pill">Employment Agreements</span>
+      <span class="doc-pill">Lease Deeds</span>
+      <span class="doc-pill">IP Licenses</span>
+      <span class="doc-pill">Board Resolutions</span>
+      <span class="doc-pill">MCA Filings (AOC-4, MGT-7)</span>
+      <span class="doc-pill">SEBI Submissions</span>
+      <span class="doc-pill">RBI Returns</span>
+      <span class="doc-pill">Litigation Pleadings</span>
+      <span class="doc-pill">Evidence Files</span>
+      <span class="doc-pill">Counsel Correspondence</span>
+      <span class="doc-pill">GST Certificates</span>
+      <span class="doc-pill">MSME Certificates</span>
+      <span class="doc-pill">ISO Certificates</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ KEY FEATURES ═══════════ -->
+<section class="section-pad">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow">Key Features</p>
+      <h2>Built for Legal &amp; Procurement Operations</h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <h3>Privilege Protection</h3>
+        <p>Litigation work product tagged, access-controlled, and access-logged — defensible if challenged in court.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">✅</div>
+        <h3>Vendor Completeness Check</h3>
+        <p>Auto-flagged missing PAN, GSTIN, MSME, insurance, or any custom compliance field per vendor.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">✍️</div>
+        <h3>Aadhaar eSign + e-Stamping</h3>
+        <p>NSDL CA partner + state-specific stamp duty — complete contract execution without leaving Kleeto.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔎</div>
+        <h3>Contract Clause Search</h3>
+        <p>Full-text and metadata search across your entire contract repository — find any clause in seconds.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📅</div>
+        <h3>Filing Deadline Alerts</h3>
+        <p>Regulator-wise tracking flagged 30 / 60 / 90 days out — MCA, SEBI, RBI, IRDAI all covered.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📤</div>
+        <h3>Discovery Export</h3>
+        <p>Complete litigation files exported in minutes — formatted and organized for counsel and courts.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ WORKFLOW ═══════════ -->
+<section class="section-pad workflow-section">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow light">Contract Lifecycle</p>
+      <h2>From Drafting to Renewal Tracking</h2>
+      <p style="color:rgba(255,255,255,.6)">Every contract step audit-trailed — from initial draft to renewal alert.</p>
+    </div>
+    <div class="workflow-steps">
+      <div class="workflow-step">
+        <div class="workflow-step-num">1</div>
+        <h3>Draft</h3>
+        <p>Template-based contract creation</p>
+      </div>
+      <div class="workflow-step">
+        <div class="workflow-step-num">2</div>
+        <h3>Review</h3>
+        <p>Legal review with comments &amp; versions</p>
+      </div>
+      <div class="workflow-step">
+        <div class="workflow-step-num">3</div>
+        <h3>eSign + Stamp</h3>
+        <p>Aadhaar eSign &amp; e-stamping</p>
+      </div>
+      <div class="workflow-step">
+        <div class="workflow-step-num">4</div>
+        <h3>Store</h3>
+        <p>Indexed by party, type &amp; expiry</p>
+      </div>
+      <div class="workflow-step">
+        <div class="workflow-step-num">5</div>
+        <h3>Track Renewal</h3>
+        <p>Expiry alerts 30 / 60 / 90 days out</p>
+      </div>
+      <div class="workflow-step">
+        <div class="workflow-step-num">6</div>
+        <h3>Audit Export</h3>
+        <p>One-click compliance &amp; discovery export</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ BENEFITS ═══════════ -->
+<section class="section-pad light-bg">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow">Measurable Benefits</p>
+      <h2>What Legal &amp; Procurement Teams See After Kleeto</h2>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-num">📜</div>
+        <div>
+          <h3>Contract Turnaround</h3>
+          <p>From weeks to days — templates, eSign, and e-stamping in one flow cuts execution time dramatically.</p>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-num">🏭</div>
+        <div>
+          <h3>Vendor Onboarding Speed</h3>
+          <p>From multiple days down to under 24 hours per vendor — with completeness checks automated.</p>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-num">📋</div>
+        <div>
+          <h3>Audit Preparation</h3>
+          <p>From months of manual assembly to single-click exports — every regulatory filing and vendor trail accessible instantly.</p>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-num">⚖️</div>
+        <div>
+          <h3>Litigation Defensibility</h3>
+          <p>Complete document trails and privilege logs reduce avoidable settlements and strengthen Legal's position in disputes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ COMPLIANCE ═══════════ -->
+<section class="section-pad">
+  <div class="container">
+    <div class="compliance-strip">
+      <h3>Compliance &amp; Security</h3>
+      <div class="compliance-badges">
+        <span class="comp-badge">Companies Act 2013</span>
+        <span class="comp-badge">RBI Guidelines</span>
+        <span class="comp-badge">SEBI Compliant</span>
+        <span class="comp-badge">IT Act Section 3A eSign</span>
+        <span class="comp-badge">ISO 27001 Certified</span>
+        <span class="comp-badge">GDPR &amp; DPDP 2023</span>
+        <span class="comp-badge">Privilege-Protected Logs</span>
+        <span class="comp-badge">AES-256 Encryption</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FAQ ═══════════ -->
+<section class="section-pad light-bg">
+  <div class="container">
+    <div class="faq-layout">
+      <div class="faq-intro">
+        <p class="eyebrow">FAQ</p>
+        <h2>Common Questions from Legal &amp; Procurement</h2>
+        <p>Everything you need to know before implementing Kleeto for your legal and procurement operations.</p>
+        <a href="https://www.kleeto.in/Demo-Page.php" class="btn btn-primary" style="margin-top:8px">Talk to an Expert</a>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-btn">
+            How is Kleeto different from a CLM tool?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-body"><p>Heavy CLMs cost six figures and are built for AI-led clause analysis. Kleeto focuses on execution, storage, and compliance — right-sized for in-house teams that need defensibility, speed, and operational efficiency without the enterprise CLM price tag.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn">
+            Can Kleeto handle legal and procurement in one system?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-body"><p>Yes — privileged litigation files for Legal, vendor master files for Procurement, with separate access controls between them. Both teams work from the same platform without seeing each other's restricted content.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn">
+            Does Kleeto support privilege protection?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-body"><p>Yes — privileged work product is tagged, access-controlled, and every access is logged with user, timestamp, and IP — creating a defensible record if privilege is challenged in proceedings.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn">
+            Can procurement track vendor compliance expiries?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-body"><p>Yes — auto-flagged 30, 60, and 90 days before expiry for GST certificates, MSME, insurance, ISO, and any custom compliance your procurement policy requires.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CTA ═══════════ -->
+<section class="cta-banner">
+  <div class="container">
+    <div class="cta-box">
+      <div>
+        <p class="eyebrow light">Get Started</p>
+        <h2>Ready to Make Every Contract and Vendor File Defensible?</h2>
+        <p>Legal and procurement teams rely on Kleeto to close contracts faster, onboard vendors in 24 hours, and pass audits without scrambling.</p>
+        <div class="cta-actions">
+          <a href="https://www.kleeto.in/Demo-Page.php" class="btn-white">Book My Demo</a>
+          <a href="tel:+91XXXXXXXXXX" class="btn btn-ghost">Call Us Now</a>
+        </div>
+      </div>
+      <div style="display:grid;gap:14px;min-width:200px">
+        <div style="background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:18px 20px;color:#fff">
+          <div style="font-size:28px;font-weight:900;color:var(--yellow)">24 hrs</div>
+          <div style="font-size:12px;font-weight:700;opacity:.7;margin-top:4px">Vendor onboarding time</div>
+        </div>
+        <div style="background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:18px 20px;color:#fff">
+          <div style="font-size:28px;font-weight:900;color:var(--yellow)">1-Click</div>
+          <div style="font-size:12px;font-weight:700;opacity:.7;margin-top:4px">Audit &amp; discovery exports</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-brand">Kleeto</span>
+      <div class="footer-links">
+        <a href="https://www.kleeto.in">Home</a>
+        <a href="#">Services</a>
+        <a href="#">Industries</a>
+        <a href="#">About Us</a>
+        <a href="https://www.kleeto.in/Demo-Page.php">Demo</a>
+      </div>
+      <span>© 2025 Kleeto. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('menuBtn').addEventListener('click', () => {
+    document.getElementById('mainNav').classList.toggle('open');
+  });
+  document.querySelectorAll('.faq-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const wasOpen = item.classList.contains('active');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+      if (!wasOpen) item.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>

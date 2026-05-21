@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insurance Document Management — Kleeto</title>
+<meta name="description" content="Kleeto unifies policy documents, claims evidence, customer KYC, and IRDAI filings for insurance companies — retrievable, auditable in seconds.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="industry.css">
+<style>
+  .hero { background: linear-gradient(160deg, #fff 0%, #f3faf1 100%); }
+
+  /* Insurance visual */
+  .ins-visual { position: relative; width: 100%; height: 400px; }
+  .ins-policy {
+    position: absolute; left: 24px; top: 38px;
+    width: 230px; height: 280px;
+    border-radius: 22px; background: #fff;
+    border: 1px solid rgba(0,0,0,.08);
+    box-shadow: 0 24px 56px rgba(0,0,0,.15);
+    overflow: hidden;
+    animation: cardFloat 6s ease-in-out infinite;
+  }
+  .ins-policy-top { background: #111; height: 52px; display: flex; align-items: center; padding: 0 16px; color: var(--yellow); font-weight: 900; font-size: 12px; letter-spacing: .06em; }
+  .ins-row { display: flex; align-items: center; gap: 8px; margin: 10px 16px; }
+  .ins-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); flex: 0 0 auto; }
+  .ins-line { flex: 1; height: 9px; border-radius: 999px; background: #eaeaea; }
+  .ins-line.s { width: 52%; flex: none; }
+
+  .ins-policy-b2 {
+    position: absolute; left: 46px; top: 60px;
+    width: 230px; height: 280px;
+    border-radius: 22px; background: var(--green-soft);
+    border: 1px solid var(--green-mid);
+    opacity: .6; z-index: -1;
+    transform: rotate(5deg);
+  }
+
+  .ins-badge-irdai {
+    position: absolute; right: 24px; top: 48px;
+    background: var(--green); color: #fff;
+    border-radius: 14px; padding: 12px 16px;
+    font-weight: 900; font-size: 13px;
+    box-shadow: 0 16px 36px rgba(31,122,16,.3);
+    animation: badgeFloat 4.5s ease-in-out infinite;
+  }
+  .ins-badge-irdai small { display: block; color: rgba(255,255,255,.75); font-size: 11px; font-weight: 700; margin-top: 3px; }
+
+  .ins-badge-claim {
+    position: absolute; right: 40px; bottom: 78px;
+    background: var(--yellow); color: #111;
+    border-radius: 14px; padding: 12px 16px;
+    font-weight: 900; font-size: 13px;
+    box-shadow: 0 14px 30px rgba(0,0,0,.16);
+    animation: badgeFloat 5.2s ease-in-out infinite reverse;
+  }
+  .ins-badge-claim small { display: block; font-size: 11px; font-weight: 700; opacity: .65; margin-top: 3px; }
+
+  .dot-i1 { width: 18px; height: 18px; background: var(--green); top: 24px; right: 150px; animation-delay: .5s; }
+  .dot-i2 { width: 26px; height: 26px; background: var(--yellow); bottom: 54px; left: 24px; animation-delay: 1.3s; }
+  .dot-i3 { width: 12px; height: 12px; background: #111; top: 200px; right: 30px; animation-delay: 2s; }
+
+  @keyframes cardFloat {
+    0%,100% { transform: translateY(0); }
+    50%      { transform: translateY(-12px) rotate(.5deg); }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ HEADER ═══════════ -->
+<header class="site-header">
+  <div class="container">
+    <nav class="nav-wrap">
+      <a href="https://www.kleeto.in" class="brand">
+        <img src="https://www.kleeto.in/images/logo.png" alt="Kleeto" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span class="brand-text" style="display:none">Kleeto</span>
+      </a>
+      <div class="main-nav" id="mainNav">
+
+  <a href="https://www.kleeto.in">Home</a>
+
+  <a href="industry-banking-nbfc.html">Banking</a>
+
+  <a href="industry-education.html">Education</a>
+
+  <a href="industry-insurance.html">Insurance</a>
+
+  <a href="industry-legal-procurement.html">
+    Legal
+  </a>
+
+  <a href="https://www.kleeto.in/about-us">
+    About Us
+  </a>
+
+  <a href="#" class="muted">Login</a>
+
+  <a href="https://www.kleeto.in/Demo-Page.php"
+     class="btn btn-primary"
+     style="padding:10px 20px;font-size:13px">
+     Book Demo
+  </a>
+
+</div>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="breadcrumb">
+          <a href="https://www.kleeto.in">Home</a>
+          <span>›</span>
+          <span>Industries</span>
+          <span>›</span>
+          <span>Insurance</span>
+        </div>
+        <p class="eyebrow">Insurance Sector</p>
+        <h1>Document Management for Insurance Companies</h1>
+        <p class="hero-sub">Policy documents, claims evidence, customer KYC, IRDAI filings — every document retrievable, auditable, and audit-trailed in seconds.</p>
+        <ul class="hero-checks">
+          <li>End-to-end policy lifecycle — from proposal to archival</li>
+          <li>Claims file assembly with auto-linked hospital records &amp; FIRs</li>
+          <li>IRDAI-aligned audit trails and retention policies</li>
+          <li>Aadhaar eSign for digital policy issuance via NSDL CA</li>
+        </ul>
+        <div class="hero-actions">
+          <a href="https://www.kleeto.in/Demo-Page.php" class="btn btn-primary">Book My Demo</a>
+          <a href="tel:+91XXXXXXXXXX" class="btn btn-outline">Call Us</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="ins-visual">
+          <div class="ins-policy-b2"></div>
+          <div class="ins-policy">
+            <div class="ins-policy-top">🛡️ POLICY DOCUMENT</div>
+            <div class="ins-row"><div class="ins-dot"></div><div class="ins-line"></div></div>
+            <div class="ins-row"><div class="ins-dot"></div><div class="ins-line s"></div></div>
+            <div class="ins-row"><div class="ins-dot"></div><div class="ins-line"></div></div>
+            <div class="ins-row"><div class="ins-dot"></div><div class="ins-line s"></div></div>
+            <div class="ins-row"><div class="ins-dot"></div><div class="ins-line"></div></div>
+          </div>
+          <div class="ins-badge-irdai">IRDAI Ready ✓<small>Audit trail exported</small></div>
+          <div class="ins-badge-claim">Claims Linked<small>Auto-assembled files</small></div>
+          <div class="vis-dot dot-i1"></div>
+          <div class="vis-dot dot-i2"></div>
+          <div class="vis-dot dot-i3"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PROOF BAR ═══════════ -->
+<section style="padding:16px 0 40px">
+  <div class="container">
+    <div class="proof-bar">
+      <div class="proof-grid">
+        <div class="proof-cell"><strong>Real-time</strong><span>Claims file assembly as docs arrive</span></div>
+        <div class="proof-cell"><strong>100%</strong><span>IRDAI audit-trail on every action</span></div>
+        <div class="proof-cell"><strong>AES-256</strong><span>Encryption on all customer data</span></div>
+        <div class="proof-cell"><strong>ISO 27001</strong><span>Certified &amp; DPDP Act 2023 aligned</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CHALLENGES ═══════════ -->
+<section class="section-pad light-bg">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Industry Pain Points</p>
+      <h2>Challenges Kleeto Solves for Insurance</h2>
+      <p>From policy sprawl to slow claims — these are the document problems that cost insurers time, money, and customer trust.</p>
+    </div>
+    <div class="challenges-grid">
+      <div class="challenge-card">
+        <div class="challenge-num">01</div>
+        <h3>Policy Document Sprawl</h3>
+        <p>20+ documents per policy scattered across branches, agents, and TPAs with no unified view.</p>
+      </div>
+      <div class="challenge-card">
+        <div class="challenge-num">02</div>
+        <h3>Claims Under Time Pressure</h3>
+        <p>One missing document stalls settlement, escalates complaints, and damages customer trust.</p>
+      </div>
+      <div class="challenge-card">
+        <div class="challenge-num">03</div>
+        <h3>IRDAI Audit Trails</h3>
+        <p>Every customer-facing document must be auditable — manual processes create dangerous gaps.</p>
+      </div>
+      <div class="challenge-card">
+        <div class="challenge-num">04</div>
+        <h3>Intermediary Management</h3>
+        <p>Agent licenses and KYC tracked across thousands of brokers — expiries slip through without automation.</p>
+      </div>
+      <div class="challenge-card">
+        <div class="challenge-num">05</div>
+        <h3>Long Retention Periods</h3>
+        <p>Life and pension records can outlive the policyholder — paper-based storage is not sustainable.</p>
+      </div>
+      <div class="challenge-card" style="background:linear-gradient(135deg,var(--green-soft),#e0f0da);border-color:var(--green-mid)">
+        <div class="challenge-num" style="background:#fff">✓</div>
+        <h3 style="color:var(--green-dark)">Kleeto solves all of this</h3>
+        <p>One IRDAI-aligned repository — unifying policy, claims, KYC, and intermediary documentation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ HOW KLEETO HELPS ═══════════ -->
+<section class="section-pad">
+  <div class="container">
+    <div class="two-col">
+      <div>
+        <p class="eyebrow">How Kleeto Helps</p>
+        <h2>IRDAI-Aligned Document Management, End to End</h2>
+        <p>Kleeto unifies policy issuance, claims, and intermediary documentation in one secure repository — with Aadhaar eSign, real-time claims file assembly, and retention policies enforced automatically per product.</p>
+        <div style="margin-top:28px; display:grid; gap:10px;">
+          <div class="help-item"><div class="help-icon">🛡️</div>Digital policy issuance with Aadhaar eSign via NSDL CA</div>
+          <div class="help-item"><div class="help-icon">⚡</div>Real-time claims file assembly — hospital records, FIRs auto-linked</div>
+          <div class="help-item"><div class="help-icon">📋</div>IRDAI inspection exports formatted exactly as inspectors request</div>
+          <div class="help-item"><div class="help-icon">🔔</div>Agent license &amp; KYC expiry alerts 30 / 60 / 90 days out</div>
+          <div class="help-item"><div class="help-icon">🔍</div>Cross-policy search for fraud investigation across customer &amp; agent</div>
+        </div>
+      </div>
+      <div class="help-visual">
+        <div style="font-weight:900;color:var(--green-dark);font-size:15px;margin-bottom:6px">📂 Unified Repository</div>
+        <div class="help-item"><div class="help-icon">📄</div>Proposal forms &amp; customer KYC</div>
+        <div class="help-item"><div class="help-icon">🏥</div>Claims documents &amp; hospital records</div>
+        <div class="help-item"><div class="help-icon">💰</div>Premium receipts &amp; endorsements</div>
+        <div class="help-item"><div class="help-icon">🤝</div>Agent &amp; broker licenses</div>
+        <div class="help-item"><div class="help-icon">📊</div>IRDAI filings &amp; audit trails</div>
+        <div class="help-item"><div class="help-icon">🔄</div>Reinsurance treaty documents</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ USE CASES ═══════════ -->
+<section class="section-pad light-bg">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow">Use Cases</p>
+      <h2>How Insurers Use Kleeto</h2>
+    </div>
+    <div class="usecase-grid">
+      <div class="usecase-card">
+        <div class="usecase-icon">📋</div>
+        <h3>Digital Policy Issuance</h3>
+        <p>Proposal forms, KYC, medical underwriting, and contracts signed via Aadhaar eSign — fully paperless.</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-icon">⚡</div>
+        <h3>Claims File Assembly</h3>
+        <p>Hospital records, FIRs, and surveyor reports auto-linked as they arrive — complete files in real time.</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-icon">🏛️</div>
+        <h3>IRDAI Inspection Prep</h3>
+        <p>Audit-trail exports formatted exactly as inspectors request — ready in minutes, not weeks.</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-icon">🤝</div>
+        <h3>Agent &amp; Intermediary Onboarding</h3>
+        <p>License verification, training records, and IRDAI submissions in one automated flow.</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-icon">🔄</div>
+        <h3>Re-KYC Cycles</h3>
+        <p>Customer KYC refreshed on schedule with automated triggers — no manual tracking needed.</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-icon">🔍</div>
+        <h3>Fraud Investigation</h3>
+        <p>Cross-policy document search across customer, agent, and product — indexed patterns surface instantly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ DOCUMENT TYPES ═══════════ -->
+<section class="section-pad doc-types-section">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Document Types</p>
+      <h2>Every Document in Your Policy Lifecycle</h2>
+    </div>
+    <div class="doc-pills">
+      <span class="doc-pill">Proposal Forms</span>
+      <span class="doc-pill">Customer KYC</span>
+      <span class="doc-pill">Medical Underwriting Reports</span>
+      <span class="doc-pill">Policy Bonds</span>
+      <span class="doc-pill">Endorsements</span>
+      <span class="doc-pill">Premium Receipts</span>
+      <span class="doc-pill">Hospital Records</span>
+      <span class="doc-pill">FIR Copies</span>
+      <span class="doc-pill">Death Certificates</span>
+      <span class="doc-pill">Surveyor Reports</span>
+      <span class="doc-pill">Settlement Records</span>
+      <span class="doc-pill">IRDAI Filings</span>
+      <span class="doc-pill">Agent Licenses</span>
+      <span class="doc-pill">Training Certifications</span>
+      <span class="doc-pill">Reinsurance Treaty Documents</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ KEY FEATURES ═══════════ -->
+<section class="section-pad">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow">Key Features</p>
+      <h2>Built for Indian Insurance Operations</h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">📡</div>
+        <h3>Multi-Channel Capture</h3>
+        <p>Branch, agent portal, digital channel, and TPA — all document streams unified in one repository.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">✍️</div>
+        <h3>Aadhaar eSign</h3>
+        <p>NSDL-licensed CA partner — legally valid under Section 3A of the IT Act 2000 for policy issuance.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📝</div>
+        <h3>Immutable Audit Trails</h3>
+        <p>Every document action logged with user, timestamp, and IP — tamper-proof for IRDAI inspections.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⏱️</div>
+        <h3>Retention by Product</h3>
+        <p>Auto-enforced retention periods per IRDAI guidelines — different rules for life, health, and general insurance.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔔</div>
+        <h3>Expiry Alerts</h3>
+        <p>Agent licenses, training records, and KYC refresh cycles flagged 30 / 60 / 90 days before they lapse.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔎</div>
+        <h3>Cross-Policy Search</h3>
+        <p>Search by customer, agent, product, claim, or any custom field — fraud patterns surface instantly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ WORKFLOW ═══════════ -->
+<section class="section-pad workflow-section">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow light">Policy Lifecycle</p>
+      <h2>End-to-End Policy Workflow</h2>
+      <p style="color:rgba(255,255,255,.6)">From proposal submission to archival — every document captured at each stage.</p>
+    </div>
+    <div class="workflow-steps">
+      <div class="workflow-step">
+        <div class="workflow-step-num">1</div>
+        <h3>Proposal</h3>
+        <p>Form capture &amp; initial KYC</p>
+      </div>
+      <div class="workflow-step">
+        <div class="workflow-step-num">2</div>
+        <h3>KYC + Underwriting</h3>
+        <p>Medical &amp; financial verification</p>
+      </div>
+      <div class="workflow-step">
+        <div class="workflow-step-num">3</div>
+        <h3>Issuance / eSign</h3>
+        <p>Aadhaar eSign on policy bonds</p>
+      </div>
+      <div class="workflow-step">
+        <div class="workflow-step-num">4</div>
+        <h3>Premium / Endorsement</h3>
+        <p>Renewals &amp; change records</p>
+      </div>
+      <div class="workflow-step">
+        <div class="workflow-step-num">5</div>
+        <h3>Claims</h3>
+        <p>Auto-assembled claims files</p>
+      </div>
+      <div class="workflow-step">
+        <div class="workflow-step-num">6</div>
+        <h3>Archival</h3>
+        <p>IRDAI-enforced retention</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ BENEFITS ═══════════ -->
+<section class="section-pad light-bg">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow">Measurable Benefits</p>
+      <h2>What Insurers See After Kleeto</h2>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-num">⚡</div>
+        <div>
+          <h3>Faster Claims Turnaround</h3>
+          <p>Complete file assembly drives faster settlements — no more chasing down hospital records from different systems.</p>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-num">🏛️</div>
+        <div>
+          <h3>IRDAI Audit Readiness</h3>
+          <p>Inspection exports ready in minutes — not weeks of manual file gathering across branches.</p>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-num">🔍</div>
+        <div>
+          <h3>Fraud Pattern Detection</h3>
+          <p>Indexed search across policies enables rapid cross-customer, cross-agent fraud investigation.</p>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-num">🏢</div>
+        <div>
+          <h3>Branch Productivity</h3>
+          <p>Staff spend less time hunting for policy files and more time serving customers and processing new business.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ COMPLIANCE ═══════════ -->
+<section class="section-pad">
+  <div class="container">
+    <div class="compliance-strip">
+      <h3>Compliance &amp; Security</h3>
+      <div class="compliance-badges">
+        <span class="comp-badge">IRDAI Aligned</span>
+        <span class="comp-badge">ISO 27001 Certified</span>
+        <span class="comp-badge">GDPR Compliant</span>
+        <span class="comp-badge">DPDP Act 2023</span>
+        <span class="comp-badge">IT Act Section 3A eSign</span>
+        <span class="comp-badge">AES-256 Encryption</span>
+        <span class="comp-badge">Role-Based Access</span>
+        <span class="comp-badge">2FA &amp; IP Controls</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FAQ ═══════════ -->
+<section class="section-pad light-bg">
+  <div class="container">
+    <div class="faq-layout">
+      <div class="faq-intro">
+        <p class="eyebrow">FAQ</p>
+        <h2>Common Questions from Insurance Teams</h2>
+        <p>Everything you need to know before implementing Kleeto in your insurance operations.</p>
+        <a href="https://www.kleeto.in/Demo-Page.php" class="btn btn-primary" style="margin-top:8px">Talk to an Expert</a>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-btn">
+            Is Kleeto IRDAI-compliant for policy and claims documentation?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-body"><p>Yes — audit trails, retention policies, and security controls align with IRDAI's requirements for life, health, and general insurance. Kleeto enforces these automatically so no document action goes unlogged.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn">
+            How long must insurance policy and claims records be retained?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-body"><p>Retention varies by product: typically 5 years post-claim closure or policy termination, and longer for life and pension products. Kleeto enforces the correct period automatically per product type.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn">
+            Can Kleeto handle agent and intermediary documentation?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-body"><p>Yes — Kleeto centralizes agent records, training certifications, broker appointments, and IRDAI submissions with automatic expiry alerts before licenses or certifications lapse.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn">
+            Does Kleeto integrate with our policy administration system?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-body"><p>Yes — Kleeto integrates with leading policy administration, claims management, TPA, CRM, and core financial systems via API, acting as the document layer alongside your existing core systems.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CTA ═══════════ -->
+<section class="cta-banner">
+  <div class="container">
+    <div class="cta-box">
+      <div>
+        <p class="eyebrow light">Get Started</p>
+        <h2>Ready to Make Every Policy Document Retrievable?</h2>
+        <p>Join insurers who have eliminated claims delays and passed IRDAI inspections without stress.</p>
+        <div class="cta-actions">
+          <a href="https://www.kleeto.in/Demo-Page.php" class="btn-white">Book My Demo</a>
+          <a href="tel:+91XXXXXXXXXX" class="btn btn-ghost">Call Us Now</a>
+        </div>
+      </div>
+      <div style="display:grid;gap:14px;min-width:200px">
+        <div style="background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:18px 20px;color:#fff">
+          <div style="font-size:24px;font-weight:900;color:var(--yellow)">Real-time</div>
+          <div style="font-size:12px;font-weight:700;opacity:.7;margin-top:4px">Claims file assembly</div>
+        </div>
+        <div style="background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:18px 20px;color:#fff">
+          <div style="font-size:24px;font-weight:900;color:var(--yellow)">Minutes</div>
+          <div style="font-size:12px;font-weight:700;opacity:.7;margin-top:4px">IRDAI audit export time</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-brand">Kleeto</span>
+      <div class="footer-links">
+        <a href="https://www.kleeto.in">Home</a>
+        <a href="#">Services</a>
+        <a href="#">Industries</a>
+        <a href="#">About Us</a>
+        <a href="https://www.kleeto.in/Demo-Page.php">Demo</a>
+      </div>
+      <span>© 2025 Kleeto. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('menuBtn').addEventListener('click', () => {
+    document.getElementById('mainNav').classList.toggle('open');
+  });
+  document.querySelectorAll('.faq-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const wasOpen = item.classList.contains('active');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+      if (!wasOpen) item.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Banking &amp; NBFC Document Management — Kleeto</title>
+<meta name="description" content="Kleeto unifies loan files, customer KYC, collateral documents, and RBI submissions for banks, NBFCs, HFCs, and lenders — retrievable for decades.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="industry.css">
+<style>
+  .hero { background: linear-gradient(160deg, #fff 0%, #f5fbf3 100%); }
+
+  /* BFSI visual */
+  .bfsi-visual { position: relative; width: 100%; height: 400px; }
+
+  .bfsi-loan {
+    position: absolute; left: 26px; top: 36px;
+    width: 232px; height: 288px;
+    border-radius: 22px; background: #fff;
+    border: 1px solid rgba(0,0,0,.08);
+    box-shadow: 0 24px 56px rgba(0,0,0,.15);
+    overflow: hidden;
+    animation: cardFloat 6s ease-in-out infinite;
+  }
+  .bfsi-top { background: var(--green); height: 52px; display: flex; align-items: center; padding: 0 16px; color: #fff; font-weight: 900; font-size: 12px; letter-spacing: .06em; }
+  .bl-row { display: flex; align-items: center; gap: 8px; margin: 10px 16px; }
+  .bl-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); flex: 0 0 auto; }
+  .bl-line { flex: 1; height: 9px; border-radius: 999px; background: #eaeaea; }
+  .bl-line.s { width: 54%; flex: none; }
+  .bl-progress {
+    margin: 14px 16px 0;
+    background: var(--green-soft);
+    border-radius: 999px;
+    height: 8px;
+    overflow: hidden;
+  }
+  .bl-bar { height: 100%; width: 72%; background: var(--green); border-radius: 999px; }
+
+  .bfsi-b2 {
+    position: absolute; left: 48px; top: 58px;
+    width: 232px; height: 288px;
+    border-radius: 22px; background: var(--green-soft);
+    border: 1px solid var(--green-mid);
+    opacity: .6; z-index: -1;
+    transform: rotate(5deg);
+  }
+
+  .bfsi-badge-rbi {
+    position: absolute; right: 20px; top: 42px;
+    background: #111; color: #fff;
+    border-radius: 14px; padding: 12px 16px;
+    font-weight: 900; font-size: 13px;
+    box-shadow: 0 16px 36px rgba(0,0,0,.22);
+    animation: badgeFloat 4.5s ease-in-out infinite;
+  }
+  .bfsi-badge-rbi small { display: block; color: var(--yellow); font-size: 11px; font-weight: 700; margin-top: 3px; }
+
+  .bfsi-badge-kyc {
+    position: absolute; right: 38px; bottom: 76px;
+    background: var(--yellow); color: #111;
+    border-radius: 14px; padding: 12px 16px;
+    font-weight: 900; font-size: 13px;
+    box-shadow: 0 14px 30px rgba(0,0,0,.16);
+    animation: badgeFloat 5s ease-in-out infinite reverse;
+  }
+  .bfsi-badge-kyc small { display: block; font-size: 11px; font-weight: 700; opacity: .65; margin-top: 3px; }
+
+  .dot-b1 { width: 18px; height: 18px; background: var(--green); top: 22px; right: 150px; animation-delay: .4s; }
+  .dot-b2 { width: 26px; height: 26px; background: var(--yellow); bottom: 52px; left: 22px; animation-delay: 1.2s; }
+  .dot-b3 { width: 12px; height: 12px; background: #111; top: 198px; right: 24px; animation-delay: 1.9s; }
+
+  @keyframes cardFloat {
+    0%,100% { transform: translateY(0); }
+    50%      { transform: translateY(-12px) rotate(.5deg); }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ HEADER ═══════════ -->
+<header class="site-header">
+  <div class="container">
+    <nav class="nav-wrap">
+      <a href="https://www.kleeto.in" class="brand">
+        <img src="https://www.kleeto.in/images/logo.png" alt="Kleeto" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span class="brand-text" style="display:none">Kleeto</span>
+      </a>
+      <div class="main-nav" id="mainNav">
+
+  <a href="https://www.kleeto.in">Home</a>
+
+  <a href="industry-banking-nbfc.html">Banking</a>
+
+  <a href="industry-education.html">Education</a>
+
+  <a href="industry-insurance.html">Insurance</a>
+
+  <a href="industry-legal-procurement.html">
+    Legal
+  </a>
+
+  <a href="https://www.kleeto.in/about-us">
+    About Us
+  </a>
+
+  <a href="#" class="muted">Login</a>
+
+  <a href="https://www.kleeto.in/Demo-Page.php"
+     class="btn btn-primary"
+     style="padding:10px 20px;font-size:13px">
+     Book Demo
+  </a>
+
+</div>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="breadcrumb">
+          <a href="https://www.kleeto.in">Home</a>
+          <span>›</span>
+          <span>Industries</span>
+          <span>›</span>
+          <span>Banking &amp; NBFC</span>
+        </div>
+        <p class="eyebrow">BFSI — Banks, NBFCs &amp; Lenders</p>
+        <h1>Document Management for Banks, NBFCs, HFCs &amp; Lenders</h1>
+        <p class="hero-sub">Loan files, customer KYC, collateral documents, and regulatory submissions — every loan creates a trail RBI expects, retrievable for decades.</p>
+        <ul class="hero-checks">
+          <li>Complete digital loan files — 30–50 documents indexed and searchable</li>
+          <li>RBI-grade audit trails on every document action</li>
+          <li>Automated re-KYC scheduling by risk classification</li>
+          <li>Collateral tracking — physical location logs plus digital copies</li>
+        </ul>
+        <div class="hero-actions">
+          <a href="https://www.kleeto.in/Demo-Page.php" class="btn btn-primary">Book My Demo</a>
+          <a href="tel:+91XXXXXXXXXX" class="btn btn-outline">Call Us</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="bfsi-visual">
+          <div class="bfsi-b2"></div>
+          <div class="bfsi-loan">
+            <div class="bfsi-top">🏦 LOAN FILE</div>
+            <div class="bl-row"><div class="bl-dot"></div><div class="bl-line"></div></div>
+            <div class="bl-row"><div class="bl-dot"></div><div class="bl-line s"></div></div>
+            <div class="bl-row"><div class="bl-dot"></div><div class="bl-line"></div></div>
+            <div class="bl-row"><div class="bl-dot"></div><div class="bl-line s"></div></div>
+            <div class="bl-progress"><div class="bl-bar"></div></div>
+          </div>
+          <div class="bfsi-badge-rbi">RBI Ready ✓<small>Inspection export</small></div>
+          <div class="bfsi-badge-kyc">KYC Auto-refresh<small>Risk-based scheduling</small></div>
+          <div class="vis-dot dot-b1"></div>
+          <div class="vis-dot dot-b2"></div>
+          <div class="vis-dot dot-b3"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PROOF BAR ═══════════ -->
+<section style="padding:16px 0 40px">
+  <div class="container">
+    <div class="proof-bar">
+      <div class="proof-grid">
+        <div class="proof-cell"><strong>Minutes</strong><span>RBI inspection export (was weeks)</span></div>
+        <div class="proof-cell"><strong>Auto</strong><span>Re-KYC scheduling by risk class</span></div>
+        <div class="proof-cell"><strong>AES-256</strong><span>Encryption on all loan &amp; KYC data</span></div>
+        <div class="proof-cell"><strong>ISO 27001</strong><span>Certified &amp; RBI Master Directions</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CHALLENGES ═══════════ -->
+<section class="section-pad light-bg">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Industry Pain Points</p>
+      <h2>Challenges Kleeto Solves for Banks &amp; NBFCs</h2>
+      <p>From loan file complexity to re-KYC window misses — these are the document problems that create RBI risk and slow lending.</p>
+    </div>
+    <div class="challenges-grid">
+      <div class="challenge-card">
+        <div class="challenge-num">01</div>
+        <h3>Loan File Complexity</h3>
+        <p>30–50 documents per loan across KYC, sanction, agreement, and disbursement — scattered across systems.</p>
+      </div>
+      <div class="challenge-card">
+        <div class="challenge-num">02</div>
+        <h3>RBI Audit Trails</h3>
+        <p>Every document action must be logged for inspections and Ombudsman complaints — manual systems create gaps.</p>
+      </div>
+      <div class="challenge-card">
+        <div class="challenge-num">03</div>
+        <h3>Re-KYC Cycles</h3>
+        <p>Customer KYC requires refresh every 2 / 8 / 10 years by risk classification — manual tracking leads to missed windows.</p>
+      </div>
+      <div class="challenge-card">
+        <div class="challenge-num">04</div>
+        <h3>Digital Lending Compliance</h3>
+        <p>Key Fact Statements, consent forms, and grievance disclosures must be captured and archived per RBI guidelines.</p>
+      </div>
+      <div class="challenge-card">
+        <div class="challenge-num">05</div>
+        <h3>Long-Term Retention</h3>
+        <p>Loans run 5–30 years; NPA recoveries can be initiated decades later — paper-based archives degrade and disappear.</p>
+      </div>
+      <div class="challenge-card" style="background:linear-gradient(135deg,var(--green-soft),#e0f0da);border-color:var(--green-mid)">
+        <div class="challenge-num" style="background:#fff">✓</div>
+        <h3 style="color:var(--green-dark)">Kleeto solves all of this</h3>
+        <p>One RBI-grade repository — for loan origination, KYC, collateral, and regulatory submissions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ HOW KLEETO HELPS ═══════════ -->
+<section class="section-pad">
+  <div class="container">
+    <div class="two-col">
+      <div>
+        <p class="eyebrow">How Kleeto Helps</p>
+        <h2>RBI-Grade Document Management for the Full Loan Lifecycle</h2>
+        <p>Kleeto unifies loan origination, customer KYC, collateral documents, and regulatory submissions in one secure repository — with Aadhaar eSign on loan agreements, re-KYC scheduling, and audit-trail exports formatted exactly as RBI inspectors expect.</p>
+        <div style="margin-top:28px; display:grid; gap:10px;">
+          <div class="help-item"><div class="help-icon">📱</div>Aadhaar eSign on loan agreements aligned with RBI digital lending</div>
+          <div class="help-item"><div class="help-icon">🔄</div>Automated re-KYC triggers by risk classification (2 / 8 / 10 year cycles)</div>
+          <div class="help-item"><div class="help-icon">🏠</div>Collateral tracking — physical location logs + indexed digital copies</div>
+          <div class="help-item"><div class="help-icon">🏛️</div>RBI inspection exports ready in minutes, not weeks</div>
+          <div class="help-item"><div class="help-icon">⚖️</div>Complete NPA recovery trails — loan files retrievable years after closure</div>
+        </div>
+      </div>
+      <div class="help-visual">
+        <div style="font-weight:900;color:var(--green-dark);font-size:15px;margin-bottom:6px">📂 Loan Document Repository</div>
+        <div class="help-item"><div class="help-icon">🪪</div>Customer KYC (Aadhaar, PAN, address proof)</div>
+        <div class="help-item"><div class="help-icon">📋</div>Sanction letters &amp; loan agreements</div>
+        <div class="help-item"><div class="help-icon">🏠</div>Property papers, title deeds &amp; charge filings</div>
+        <div class="help-item"><div class="help-icon">💰</div>Disbursement records &amp; post-disbursement compliance</div>
+        <div class="help-item"><div class="help-icon">📊</div>RBI filings &amp; NBFC returns</div>
+        <div class="help-item"><div class="help-icon">📄</div>Digital lending KFS, consent &amp; grievance records</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ USE CASES ═══════════ -->
+<section class="section-pad light-bg">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow">Use Cases</p>
+      <h2>How Banks &amp; NBFCs Use Kleeto</h2>
+    </div>
+    <div class="usecase-grid">
+      <div class="usecase-card">
+        <div class="usecase-icon">📱</div>
+        <h3>Digital Loan Onboarding</h3>
+        <p>Aadhaar eSign on loan agreements aligned with RBI's digital lending framework — fully paperless origination.</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-icon">🪪</div>
+        <h3>Customer KYC &amp; Re-KYC</h3>
+        <p>Version-controlled KYC records with refresh triggers by risk classification — no manual tracking needed.</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-icon">🏠</div>
+        <h3>Collateral Document Management</h3>
+        <p>Physical-location logs plus indexed digital copies — complete trails for recovery proceedings years later.</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-icon">🏛️</div>
+        <h3>RBI Inspection Prep</h3>
+        <p>Audit-trail exports in the exact format RBI inspectors request — ready in minutes, not weeks of file gathering.</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-icon">⚖️</div>
+        <h3>NPA &amp; Recovery Support</h3>
+        <p>Complete loan document trails — collateral, hypothecation, and charge filings retrievable in seconds for recovery.</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-icon">🤝</div>
+        <h3>Co-Lending &amp; Fintech Partnerships</h3>
+        <p>Document exchange and audit trails across partner platforms via secure API — co-lending ready.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ DOCUMENT TYPES ═══════════ -->
+<section class="section-pad doc-types-section">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Document Types</p>
+      <h2>Every Document in the Loan Lifecycle</h2>
+    </div>
+    <div class="doc-pills">
+      <span class="doc-pill">Customer KYC (Aadhaar, PAN)</span>
+      <span class="doc-pill">Income Proof</span>
+      <span class="doc-pill">Bank Statements</span>
+      <span class="doc-pill">Property Papers</span>
+      <span class="doc-pill">Valuation Reports</span>
+      <span class="doc-pill">Sanction Letters</span>
+      <span class="doc-pill">Loan Agreements</span>
+      <span class="doc-pill">Disbursement Records</span>
+      <span class="doc-pill">Hypothecation Agreements</span>
+      <span class="doc-pill">Title Deeds</span>
+      <span class="doc-pill">Charge Filings</span>
+      <span class="doc-pill">RBI Filings</span>
+      <span class="doc-pill">NBFC Returns</span>
+      <span class="doc-pill">SEBI Submissions</span>
+      <span class="doc-pill">Key Fact Statements</span>
+      <span class="doc-pill">Consent Forms</span>
+      <span class="doc-pill">Grievance Records</span>
+      <span class="doc-pill">Post-Disbursement Compliance</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ KEY FEATURES ═══════════ -->
+<section class="section-pad">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow">Key Features</p>
+      <h2>Built for RBI-Grade Lending Operations</h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">✍️</div>
+        <h3>Aadhaar eSign</h3>
+        <p>NSDL-licensed CA partner — aligned with RBI's digital lending guidelines for loan agreement execution.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📝</div>
+        <h3>RBI-Grade Audit Trails</h3>
+        <p>Every document action logged with user, timestamp, and IP — tamper-proof for inspections and Ombudsman cases.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔄</div>
+        <h3>Re-KYC Scheduling</h3>
+        <p>Automated triggers by risk classification — high / medium / low risk customers refreshed on the correct cycle.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🏠</div>
+        <h3>Collateral Tracking</h3>
+        <p>Physical vault location linked to indexed digital copies — complete collateral trail for recovery proceedings.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⏱️</div>
+        <h3>Retention Enforcement</h3>
+        <p>Auto-enforced by RBI master direction, document type, and loan product — from KYC (10 years) to loan transactions (8 years).</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⚖️</div>
+        <h3>Recovery Support</h3>
+        <p>Complete loan files retrievable years after closure — all collateral and hypothecation documents indexed and accessible.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ WORKFLOW ═══════════ -->
+<section class="section-pad workflow-section">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow light">Loan Lifecycle</p>
+      <h2>Full Loan Document Workflow</h2>
+      <p style="color:rgba(255,255,255,.6)">From origination to closure — every document captured, retained, and retrievable.</p>
+    </div>
+    <div class="workflow-steps">
+      <div class="workflow-step">
+        <div class="workflow-step-num">1</div>
+        <h3>Lead</h3>
+        <p>Initial KYC &amp; application capture</p>
+      </div>
+      <div class="workflow-step">
+        <div class="workflow-step-num">2</div>
+        <h3>KYC + Underwriting</h3>
+        <p>Income, property &amp; credit verification</p>
+      </div>
+      <div class="workflow-step">
+        <div class="workflow-step-num">3</div>
+        <h3>Sanction + eSign</h3>
+        <p>Aadhaar eSign on loan agreements</p>
+      </div>
+      <div class="workflow-step">
+        <div class="workflow-step-num">4</div>
+        <h3>Disbursement</h3>
+        <p>Disbursement records &amp; compliance</p>
+      </div>
+      <div class="workflow-step">
+        <div class="workflow-step-num">5</div>
+        <h3>Servicing + Re-KYC</h3>
+        <p>Automated re-KYC &amp; EMI tracking</p>
+      </div>
+      <div class="workflow-step">
+        <div class="workflow-step-num">6</div>
+        <h3>Closure / Recovery</h3>
+        <p>Complete trails for NPA recovery</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ BENEFITS ═══════════ -->
+<section class="section-pad light-bg">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow">Measurable Benefits</p>
+      <h2>What Banks &amp; NBFCs See After Kleeto</h2>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-num">⚡</div>
+        <div>
+          <h3>Faster Loan Turnaround</h3>
+          <p>Complete digital loan files cut sanction-to-disbursement time — no more chasing physical documents between branches.</p>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-num">🏛️</div>
+        <div>
+          <h3>RBI Inspections in Minutes</h3>
+          <p>Regulatory exports ready in minutes — not weeks of manual file-gathering across branches and vaults.</p>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-num">🔄</div>
+        <div>
+          <h3>Zero Re-KYC Window Misses</h3>
+          <p>Automated scheduling eliminates missed KYC refresh windows — compliance maintained without manual tracking.</p>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-num">⚖️</div>
+        <div>
+          <h3>Faster NPA Recovery</h3>
+          <p>Indexed collateral documents and complete loan trails accelerate recovery proceedings — every document ready to present.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ COMPLIANCE ═══════════ -->
+<section class="section-pad">
+  <div class="container">
+    <div class="compliance-strip">
+      <h3>Compliance &amp; Security</h3>
+      <div class="compliance-badges">
+        <span class="comp-badge">RBI Master Directions</span>
+        <span class="comp-badge">RBI Digital Lending</span>
+        <span class="comp-badge">ISO 27001 Certified</span>
+        <span class="comp-badge">GDPR Compliant</span>
+        <span class="comp-badge">DPDP Act 2023</span>
+        <span class="comp-badge">IT Act Section 3A eSign</span>
+        <span class="comp-badge">AES-256 Encryption</span>
+        <span class="comp-badge">2FA &amp; IP Controls</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FAQ ═══════════ -->
+<section class="section-pad light-bg">
+  <div class="container">
+    <div class="faq-layout">
+      <div class="faq-intro">
+        <p class="eyebrow">FAQ</p>
+        <h2>Common Questions from BFSI Teams</h2>
+        <p>Everything you need to know before implementing Kleeto in your lending operations.</p>
+        <a href="https://www.kleeto.in/Demo-Page.php" class="btn btn-primary" style="margin-top:8px">Talk to an Expert</a>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-btn">
+            Is Kleeto compliant with RBI's documentation requirements?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-body"><p>Yes — audit trails, retention policies, security controls, and access management align with RBI's master directions on KYC, outsourcing, and digital lending. Kleeto enforces these automatically per document type and loan product.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn">
+            How long must banks and NBFCs retain loan and KYC documents?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-body"><p>KYC records are typically retained for 10 years after the relationship ends; loan transaction records for 8 years per the Income Tax Act, and longer for capital-account transactions. Kleeto enforces the correct retention period automatically.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn">
+            Can Kleeto support RBI's digital lending guidelines?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-body"><p>Yes — Key Fact Statement delivery, consent capture, Aadhaar eSign, grievance disclosure archival, and complete digital lending audit trails are all supported. Kleeto is purpose-built for RBI's digital lending framework.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn">
+            Can Kleeto integrate with our core banking or LOS?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-body"><p>Yes — Kleeto integrates with core banking systems (Finacle, Flexcube, TCS BaNCS), loan origination systems, CRM, and credit bureau APIs via API. It acts as the document layer alongside your existing core BFSI systems.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CTA ═══════════ -->
+<section class="cta-banner">
+  <div class="container">
+    <div class="cta-box">
+      <div>
+        <p class="eyebrow light">Get Started</p>
+        <h2>Ready to Make Every Loan File RBI-Ready?</h2>
+        <p>Banks and NBFCs rely on Kleeto to pass RBI inspections, automate re-KYC, and accelerate NPA recovery with complete document trails.</p>
+        <div class="cta-actions">
+          <a href="https://www.kleeto.in/Demo-Page.php" class="btn-white">Book My Demo</a>
+          <a href="tel:+91XXXXXXXXXX" class="btn btn-ghost">Call Us Now</a>
+        </div>
+      </div>
+      <div style="display:grid;gap:14px;min-width:200px">
+        <div style="background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:18px 20px;color:#fff">
+          <div style="font-size:28px;font-weight:900;color:var(--yellow)">Minutes</div>
+          <div style="font-size:12px;font-weight:700;opacity:.7;margin-top:4px">RBI inspection export time</div>
+        </div>
+        <div style="background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:18px 20px;color:#fff">
+          <div style="font-size:28px;font-weight:900;color:var(--yellow)">10 yrs</div>
+          <div style="font-size:12px;font-weight:700;opacity:.7;margin-top:4px">KYC retention auto-enforced</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-brand">Kleeto</span>
+      <div class="footer-links">
+        <a href="https://www.kleeto.in">Home</a>
+        <a href="#">Services</a>
+        <a href="#">Industries</a>
+        <a href="#">About Us</a>
+        <a href="https://www.kleeto.in/Demo-Page.php">Demo</a>
+      </div>
+      <span>© 2025 Kleeto. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('menuBtn').addEventListener('click', () => {
+    document.getElementById('mainNav').classList.toggle('open');
+  });
+  document.querySelectorAll('.faq-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const wasOpen = item.classList.contains('active');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+      if (!wasOpen) item.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
